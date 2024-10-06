@@ -8,7 +8,7 @@ public class Pokemon : ICombate, IPorTurnos
     private int vida;
     private Ataque ataqueEspecial;
     private List<Ataque> ataques;
-    private List<Tipo> tipos;
+    private List<Tipos> tipos;
     private bool estaDerrotado;
 
     public string Nombre
@@ -35,7 +35,7 @@ public class Pokemon : ICombate, IPorTurnos
         set { ataques = value; }
     }
 
-    public List<Tipo> Tipos
+    public List<Tipos> Tipos
     {
         get { return tipos; }
         set { tipos = value; }
