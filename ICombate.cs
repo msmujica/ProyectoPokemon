@@ -2,6 +2,6 @@ namespace ProyectoPokemon;
 
 public interface ICombate
 {
-    void elegirAtaque();
+    void atacar(Pokemon oponente, Ataque ataque);
     void recibirDaño(int daño);
 }
