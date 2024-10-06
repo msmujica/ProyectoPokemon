@@ -4,7 +4,7 @@ public class Ataque
 {
     private string nombre;
     private int daño;
-    private List<Tipo> tipo;
+    private List<Tipos> tipo;
     private bool especial;
     
     public string Nombre
@@ -19,7 +19,7 @@ public class Ataque
         set { daño = value; }
     }
 
-    public List<Tipo> Tipos
+    public List<Tipos> Tipos
     {
         get { return tipo; }
         set { tipo = value; }
@@ -31,7 +31,7 @@ public class Ataque
         set { especial = value; }
     }
 
-    public Ataque(string nombre, int daño, List<Tipo> tipo, bool especial)
+    public Ataque(string nombre, int daño, List<Tipos> tipo, bool especial)
     {
         this.Nombre = nombre;
         this.Daño = daño;
@@ -39,7 +39,7 @@ public class Ataque
         this.Especial = especial;
     }
 
-    public void agregarTipo(Tipo tipo)
+    public void agregarTipo(Tipos tipo)
     {
         this.Tipos.Add(tipo);
     }
