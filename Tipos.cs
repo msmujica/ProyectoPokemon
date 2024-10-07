@@ -27,6 +27,8 @@ public class Tipos
     public Tipos(string nombre)
     {
         this.Nombre = nombre;
+        this.Debilidades = new List<Tipos>();
+        this.Fortalezas = new List<Tipos>();
     }
 
     public void agregarDebilidades(Tipos tipo)
