@@ -1,0 +1,45 @@
+namespace ProyectoPokemon;
+
+public class Batalla
+{
+    private Entrenador jugador;
+    private Entrenador jugadorOponente;
+
+    public Entrenador Jugador
+    {
+        get { return jugador; }
+        set { jugador = value; }
+    }
+
+    public Entrenador JugadorOponente
+    {
+        get { return jugadorOponente; }
+        set { jugadorOponente = value; }
+    }
+
+    public Batalla(Entrenador jugador, Entrenador oponente)
+    {
+        this.Jugador = jugador;
+        this.JugadorOponente = oponente;
+    }
+    
+    public void iniciarBatalla() 
+    { 
+        Console.WriteLine("¡Comienza la batalla!"); 
+        this.Jugador.comenzarTurno(); 
+        this.JugadorOponente.comenzarTurno();
+    } 
+    
+    public void terminarBatalla() 
+    { 
+        Console.WriteLine("¡La batalla ha terminado!"); 
+    }
+
+    public void procesarTurno(int ataqueIndex)
+    {
+        if (!this.Jugador.Activo.EstaDerrotado)
+        {
+            this.Jugador.elegirAtaque(ataqueIndex, this.JugadorOponente.Activo);
+        }
+    }
+}
