@@ -35,10 +35,12 @@ public class Batalla
         Console.WriteLine("¡La batalla ha terminado!"); 
     }
 
-    public void procesarTurno(int ataqueIndex)
+    public void procesarTurno()
     {
         if (!this.Jugador.Activo.EstaDerrotado)
         {
+            this.Jugador.Activo.mostrarAtaques();
+            int ataqueIndex = int.Parse(Console.ReadLine());
             this.Jugador.elegirAtaque(ataqueIndex, this.JugadorOponente.Activo);
         }
     }

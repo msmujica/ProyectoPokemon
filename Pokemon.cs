@@ -1,4 +1,5 @@
 using System.Collections;
+using System.Runtime.CompilerServices;
 
 namespace ProyectoPokemon;
 
@@ -55,6 +56,8 @@ public class Pokemon : ICombate, IPorTurnos
         this.Ataques = ataques;
         this.Tipos = tipos;
         this.EstaDerrotado = false;
+        
+        Pokedex.agregarPokemon(this);
     }
 
     public void recibirDaño(int daño)
@@ -78,7 +81,7 @@ public class Pokemon : ICombate, IPorTurnos
     public void atacar(Pokemon oponente, Ataque ataque)
     {
         int dañoTotal;
-        int multiplicador = 1;
+        double multiplicador = 1.0;
         
         if (!EstaDerrotado)
         {
@@ -90,7 +93,7 @@ public class Pokemon : ICombate, IPorTurnos
                 }
             }
 
-            dañoTotal = ataque.Daño * multiplicador;
+            dañoTotal = (int)(ataque.Daño * multiplicador);
             oponente.recibirDaño(dañoTotal);
             Console.WriteLine($"{this.Nombre} ataca a {oponente.nombre} usando {ataque.Nombre}, causando {dañoTotal} de daño");
         }
@@ -117,6 +120,17 @@ public class Pokemon : ICombate, IPorTurnos
         if (!EstaDerrotado)
         {
             Console.WriteLine($"{this.Nombre} finaliza su turno.");
+        }
+    }
+    
+    public void mostrarAtaques()
+    {
+        int numero = 0;
+        Console.WriteLine("Lista de ataques del Pokemon");
+        foreach (var ataque in this.Ataques)
+        {
+            Console.WriteLine($"{numero} - {ataque.Nombre}");
+            numero += 1;
         }
     }
 }
