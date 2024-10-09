@@ -4,6 +4,7 @@ public class Batalla
 {
     private Entrenador jugador;
     private Entrenador jugadorOponente;
+    private bool turno;
 
     public Entrenador Jugador
     {
@@ -17,10 +18,17 @@ public class Batalla
         set { jugadorOponente = value; }
     }
 
+    public bool Turno
+    {
+        get { return turno; }
+        set { turno = value; }
+    }
+
     public Batalla(Entrenador jugador, Entrenador oponente)
     {
         this.Jugador = jugador;
         this.JugadorOponente = oponente;
+        this.Turno = true;
     }
     
     public void iniciarBatalla() 
@@ -37,11 +45,24 @@ public class Batalla
 
     public void procesarTurno()
     {
-        if (!this.Jugador.Activo.EstaDerrotado)
+        if (turno)
         {
-            this.Jugador.Activo.mostrarAtaques();
-            int ataqueIndex = int.Parse(Console.ReadLine());
-            this.Jugador.elegirAtaque(ataqueIndex, this.JugadorOponente.Activo);
+            if (!this.Jugador.Activo.EstaDerrotado)
+            {
+                this.Jugador.Activo.mostrarAtaques();
+                int ataqueIndex = int.Parse(Console.ReadLine());
+                this.Jugador.elegirAtaque(ataqueIndex, this.JugadorOponente.Activo);
+            }   
+        }
+        else
+        {
+            
+            if (!this.JugadorOponente.Activo.EstaDerrotado)
+            {
+                this.JugadorOponente.Activo.mostrarAtaques();
+                int ataqueIndex = int.Parse(Console.ReadLine());
+                this.JugadorOponente.elegirAtaque(ataqueIndex, this.Jugador.Activo);
+            }
         }
     }
 }
