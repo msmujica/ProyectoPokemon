@@ -24,31 +24,74 @@ public class Entrenador : IPorTurnos
         set { activo = value; }
     }
 
-    public Entrenador(string nombre, List<Pokemon> listaPokemon)
+    public Entrenador(string nombre)
     {
         this.Nombre = nombre;
-        this.Equipo = listaPokemon;
-        this.Activo = listaPokemon[0];
+        this.Equipo = new List<Pokemon>();
+        this.Activo = null;
     }
 
-    public void elegirEquipo(Pokemon pokemon)
+    public void elegirEquipo()
     {
-        if (pokemon is Pokemon)
+        while (this.Equipo.Count < 2)
         {
-            this.Equipo.Add(pokemon);   
+            Pokedex.mostrarPokedex();
+            Console.WriteLine("Selecciona el numero del pokemon que deseas agregar a tu equipo");
+            int numero = int.Parse(Console.ReadLine());
+
+            Pokemon seleccion = Pokedex.obtenerPokemonPorIndice(numero);
+
+            if (seleccion != null)
+            {
+                if (!this.Equipo.Contains(seleccion))
+                {
+                    this.Equipo.Add(seleccion);
+                    Console.WriteLine($"{seleccion.Nombre} ha sido añadido a tu equipo.");
+                }
+                else
+                {
+                    Console.WriteLine("El pokemon ya esta en tu equipo");
+                }
+            }
+
+            if (this.Equipo.Count == 1)
+            {
+                this.Activo = seleccion;
+            }
+
+            if (this.Equipo.Count == 6)
+            {
+                Console.WriteLine("Ya tienes 6 pokemones en tu equipo");
+            }
         }
     }
 
     public void cambiarActivo(int indexPokemonList)
     {
-        this.Activo = this.Equipo[indexPokemonList];
+        if (indexPokemonList >= 0 && indexPokemonList < this.Equipo.Count)
+        {
+            this.Activo = this.Equipo[indexPokemonList];
+        }
+        else
+        {
+            Console.WriteLine("Indice no valido. No se pudo cambiar el pokemon");
+        }
     }
 
     public void elegirAtaque(int indexAtaque, Pokemon oponente)
     {
-        Ataque ataqueElegido = this.activo.Ataques[indexAtaque];
+        Ataque ataqueElegido = null;
+        if (indexAtaque == 3)
+        {
+            ataqueElegido = this.activo.AtaqueEspecial;
+        }
+        else
+        {
+            ataqueElegido = this.activo.Ataques[indexAtaque];
+        }
+        
         this.activo.atacar(oponente, ataqueElegido);
-    }
+        }
     
     public void comenzarTurno()
     {

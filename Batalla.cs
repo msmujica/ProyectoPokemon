@@ -1,45 +1,47 @@
-    namespace ProyectoPokemon;
+namespace ProyectoPokemon;
 
-    public class Batalla
+public class Batalla
+{
+    private Entrenador jugador;
+    private Entrenador jugadorOponente;
+
+    public Entrenador Jugador
     {
-        private Entrenador jugador;
-        private Entrenador jugadorOponente;
+        get { return jugador; }
+        set { jugador = value; }
+    }
 
-        public Entrenador Jugador
-        {
-            get { return jugador; }
-            set { jugador = value; }
-        }
+    public Entrenador JugadorOponente
+    {
+        get { return jugadorOponente; }
+        set { jugadorOponente = value; }
+    }
 
-        public Entrenador JugadorOponente
-        {
-            get { return jugadorOponente; }
-            set { jugadorOponente = value; }
-        }
+    public Batalla(Entrenador jugador, Entrenador oponente)
+    {
+        this.Jugador = jugador;
+        this.JugadorOponente = oponente;
+    }
+    
+    public void iniciarBatalla() 
+    { 
+        Console.WriteLine("¡Comienza la batalla!"); 
+        this.Jugador.comenzarTurno(); 
+        this.JugadorOponente.comenzarTurno();
+    } 
+    
+    public void terminarBatalla() 
+    { 
+        Console.WriteLine("¡La batalla ha terminado!"); 
+    }
 
-        public Batalla(Entrenador jugador, Entrenador oponente)
+    public void procesarTurno()
+    {
+        if (!this.Jugador.Activo.EstaDerrotado)
         {
-            this.Jugador = jugador;
-            this.JugadorOponente = oponente;
-        }
-        
-        public void iniciarBatalla() 
-        { 
-            Console.WriteLine("¡Comienza la batalla!"); 
-            this.Jugador.comenzarTurno(); 
-            this.JugadorOponente.comenzarTurno();
-        } 
-        
-        public void terminarBatalla() 
-        { 
-            Console.WriteLine("¡La batalla ha terminado!"); 
-        }
-
-        public void procesarTurno(int ataqueIndex)
-        {
-            if (!this.Jugador.Activo.EstaDerrotado)
-            {
-                this.Jugador.elegirAtaque(ataqueIndex, this.JugadorOponente.Activo);
-            }
+            this.Jugador.Activo.mostrarAtaques();
+            int ataqueIndex = int.Parse(Console.ReadLine());
+            this.Jugador.elegirAtaque(ataqueIndex, this.JugadorOponente.Activo);
         }
     }
+}
