@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\ProyectoPokemon\\ProyectoPokemon.csproj": {}
+    "C:\\Users\\Estudiante UCU\\Desktop\\ProyectoPokemon\\ProyectoPokemon.csproj": {}
   },
   "projects": {
-    "C:\\ProyectoPokemon\\ProyectoPokemon.csproj": {
+    "C:\\Users\\Estudiante UCU\\Desktop\\ProyectoPokemon\\ProyectoPokemon.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\ProyectoPokemon\\ProyectoPokemon.csproj",
+        "projectUniqueName": "C:\\Users\\Estudiante UCU\\Desktop\\ProyectoPokemon\\ProyectoPokemon.csproj",
         "projectName": "ProyectoPokemon",
-        "projectPath": "C:\\ProyectoPokemon\\ProyectoPokemon.csproj",
-        "packagesPath": "C:\\Users\\cuent\\.nuget\\packages\\",
-        "outputPath": "C:\\ProyectoPokemon\\obj\\",
+        "projectPath": "C:\\Users\\Estudiante UCU\\Desktop\\ProyectoPokemon\\ProyectoPokemon.csproj",
+        "packagesPath": "C:\\Users\\Estudiante UCU\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Estudiante UCU\\Desktop\\ProyectoPokemon\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\cuent\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "C:\\Users\\Estudiante UCU\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net8.0"

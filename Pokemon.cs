@@ -3,7 +3,7 @@ using System.Runtime.CompilerServices;
 
 namespace ProyectoPokemon;
 
-public class Pokemon : ICombate, IPorTurnos
+public class Pokemon : IPorTurnos
 {
     private string nombre;
     private int vida;
