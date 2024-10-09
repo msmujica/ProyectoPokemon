@@ -51,18 +51,18 @@ public class Tipos
         this.Fortalezas.Remove(tipo);
     }
 
-    public int multiplicadorDaño(Tipos tipoAtaque)
+    public double multiplicadorDaño(Tipos tipoAtaque)
     {
         if (this.Debilidades.Contains(tipoAtaque))
         {
-            return 2;
+            return 2.0;
         }
 
         if (this.Fortalezas.Contains(tipoAtaque))
         {
-            return 1;
+            return 0.5;
         }
 
-        return 0;
+        return 1.0;
     }
 }
