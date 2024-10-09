@@ -2,8 +2,6 @@
 Microsoft Visual Studio Solution File, Format Version 12.00
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProyectoPokemon", "ProyectoPokemon.csproj", "{01F1A5E9-395E-4AFE-BA8C-CBF2D0F85B9C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProyectoPokemon.Tests", "..\ProyectoPokemon.Tests\ProyectoPokemon.Tests.csproj", "{6DBF868C-5193-4C76-9F26-3C7C6C26878F}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -14,9 +12,5 @@ Global
 		{01F1A5E9-395E-4AFE-BA8C-CBF2D0F85B9C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{01F1A5E9-395E-4AFE-BA8C-CBF2D0F85B9C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{01F1A5E9-395E-4AFE-BA8C-CBF2D0F85B9C}.Release|Any CPU.Build.0 = Release|Any CPU
-		{6DBF868C-5193-4C76-9F26-3C7C6C26878F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{6DBF868C-5193-4C76-9F26-3C7C6C26878F}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{6DBF868C-5193-4C76-9F26-3C7C6C26878F}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{6DBF868C-5193-4C76-9F26-3C7C6C26878F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
