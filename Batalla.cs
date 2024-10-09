@@ -4,6 +4,7 @@ public class Batalla
 {
     private Entrenador jugador;
     private Entrenador jugadorOponente;
+    
 
     public Entrenador Jugador
     {
@@ -44,4 +45,12 @@ public class Batalla
             this.Jugador.elegirAtaque(ataqueIndex, this.JugadorOponente.Activo);
         }
     }
+    public void procesarTurnoOponente(int ataqueIndex)
+    {
+        if (!this.JugadorOponente.Activo.EstaDerrotado)
+        {
+            this.JugadorOponente.elegirAtaque(ataqueIndex, this.Jugador.Activo);
+        }
+    }
+
 }
