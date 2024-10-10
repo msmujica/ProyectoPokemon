@@ -4,12 +4,7 @@ public class Batalla
 {
     private Entrenador jugador;
     private Entrenador jugadorOponente;
- Fachada
-    
-
     private bool turno;
- master
-
     public Entrenador Jugador
     {
         get { return jugador; }
