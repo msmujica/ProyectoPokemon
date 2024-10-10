@@ -44,32 +44,40 @@ public class Batalla
 
     public void procesarTurno()
     {
-        if (turno)
+        if (turno) // Turno del jugador
         {
             if (!this.Jugador.Activo.EstaDerrotado)
             {
                 this.Jugador.Activo.mostrarAtaques();
+                Console.WriteLine("Elige un ataque o presiona -1 para cambiar de Pokémon:");
                 int ataqueIndex = int.Parse(Console.ReadLine());
-                this.Jugador.elegirAtaque(ataqueIndex, this.JugadorOponente.Activo);
-            }   
-        }
-        else
-        {
             
+                if (ataqueIndex == -1)
+                {
+                    Console.WriteLine("Selecciona el índice del Pokémon que deseas activar:");
+                    int indexPokemon = int.Parse(Console.ReadLine());
+                    this.Jugador.cambiarActivo(indexPokemon);
+                    Console.WriteLine($"{this.Jugador.Nombre} ha cambiado a {this.Jugador.Activo.Nombre} como Pokémon activo.");
+                }
+                else
+                {
+                    this.Jugador.elegirAtaque(ataqueIndex, this.JugadorOponente.Activo);
+                }
+            }
+        }
+        else // Turno del oponente
+        {
             if (!this.JugadorOponente.Activo.EstaDerrotado)
             {
-                this.JugadorOponente.Activo.mostrarAtaques();
-                int ataqueIndex = int.Parse(Console.ReadLine());
+                // Aquí podrías implementar una lógica simple para que el oponente elija un ataque aleatorio
+                Random random = new Random();
+                int ataqueIndex = random.Next(this.JugadorOponente.Activo.Ataques.Count); // Selecciona un ataque aleatorio
                 this.JugadorOponente.elegirAtaque(ataqueIndex, this.Jugador.Activo);
             }
         }
-    }
-    public void procesarTurnoOponente(int ataqueIndex)
-    {
-        if (!this.JugadorOponente.Activo.EstaDerrotado)
-        {
-            this.JugadorOponente.elegirAtaque(ataqueIndex, this.Jugador.Activo);
-        }
+
+        // Cambiar el turno
+        turno = !turno; // Alterna el turno
     }
 
 }
